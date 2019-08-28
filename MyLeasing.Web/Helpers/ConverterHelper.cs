@@ -19,6 +19,23 @@ namespace MyLeasing.Web.Helpers
             _combosHelper = combosHelper;
         }
 
+        public async Task<Contract> ToContractAsync(ContractViewModel model, bool isnew)
+        {
+            return new Contract
+            {
+                EndDate = model.EndDate.ToUniversalTime(),
+                IsActive = model.IsActive,
+                Lessee = await _dataContext.Lessees.FindAsync(model.LesseeId),
+                Owner = await _dataContext.Owners.FindAsync(model.OwnerId),
+                Price = model.Price,
+                Property = await _dataContext.Properties.FindAsync(model.PropertyId),
+                Remarks = model.Remarks,
+                StartDate = model.StartDate.ToUniversalTime(),
+                Id = isnew ? 0 : model.Id
+            };
+
+        }
+
         public async Task<Property> ToPropertyAsync(PropertyViewModel model, bool isNew)
         {
             return new Property

@@ -26,11 +26,11 @@ namespace MyLeasing.Web.Helpers
 
             list.Insert(0, new SelectListItem
             {
-                Text = "(Select a Lessee...)",
+                Text = "(Select a lessee...)",
                 Value = "0"
             });
 
-            return list; ;
+            return list;
         }
 
         public IEnumerable<SelectListItem> GetComboPropertyTypes()

@@ -16,14 +16,6 @@ namespace MyLeasing.Web.Migrations
                 oldClrType: typeof(string),
                 oldMaxLength: 30);
 
-            migrationBuilder.AlterColumn<string>(
-                name: "Address",
-                table: "Owners",
-                maxLength: 100,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldNullable: true);
-
             migrationBuilder.CreateTable(
                 name: "Lessees",
                 columns: table => new
@@ -203,14 +195,6 @@ namespace MyLeasing.Web.Migrations
                 nullable: false,
                 oldClrType: typeof(string),
                 oldMaxLength: 20);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Address",
-                table: "Owners",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldMaxLength: 100,
-                oldNullable: true);
         }
     }
 }

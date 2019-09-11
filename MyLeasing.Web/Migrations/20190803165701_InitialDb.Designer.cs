@@ -9,7 +9,7 @@ using MyLeasing.Web.Data;
 namespace MyLeasing.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190809232903_InitialDb")]
+    [Migration("20190803165701_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,15 +26,14 @@ namespace MyLeasing.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .HasMaxLength(100);
+                    b.Property<string>("Address");
 
                     b.Property<string>("CellPhone")
                         .HasMaxLength(20);
 
                     b.Property<string>("Document")
                         .IsRequired()
-                        .HasMaxLength(20);
+                        .HasMaxLength(30);
 
                     b.Property<string>("FirstName")
                         .IsRequired()

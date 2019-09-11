@@ -28,13 +28,18 @@ namespace MyLeasing.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await _userHelper.LoginAsync(model);
-                if (response.Succeeded)
+                var result = await _userHelper.LoginAsync(model);
+                if (result.Succeeded)
                 {
+                    if (Request.Query.Keys.Contains("ReturnUrl"))
+                    {
+                        return Redirect(Request.Query["ReturnUrl"].First());
+                    }
+
                     return RedirectToAction("Index", "Home");
                 }
 
-                ModelState.AddModelError(string.Empty, "User or password incorrect");
+                ModelState.AddModelError(string.Empty, "User or password incorrect.");
             }
 
             return View(model);
